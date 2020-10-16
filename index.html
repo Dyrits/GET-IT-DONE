@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get It Done</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css" type="text/css">
+</head>
+<body>
+    <div id="menu-section">
+        <input type="checkbox" id="menu">
+        <aside id="menu-controller">
+            <label for="menu" class="icon"></label>
+        </aside>
+        <div id="menu-dimmed-bg"></div>
+        <div id="menu-content">
+            <header>
+                <h4 class="bold">Get it done</h4>
+                <label for="menu" class="icon"></label>
+            </header>
+            <section id="theme">
+                <h5 class="bold">Theme:
+                    <span id="light" class="current-theme">Light</span>
+                    <span id="dark">Dark</span>
+                </h5>
+            </section>
+            <section id="completed-tasks">
+                <h5 class="bold">Recently Completed Tasks</h5>
+                <ul id="completed-task-list">
+                    <li>Walk Dog: <span>Sept 12th</span></li>
+                    <li>Record Video: <span>Sept 12th</span></li>
+                    <li>Feed Cats: <span>Sept 12th</span></li>
+                    <li>Kill someone: <span>Sept 12th</span></li>
+                </ul>
+            </section>
+            <h5 id="reset" class="bold">Reset All</h5>
+        </div>
+    </div>
+    <section id="main"></section>
+    <script src="scripts/date_format.js" type="text/javascript"></script>
+    <script src="./scripts/storage.js" type="text/javascript"></script>
+    <script src="./scripts/tasks.js" type="text/javascript"></script>
+    <script src="./scripts/main.js" type="text/javascript"></script>
+</body>
+</html>

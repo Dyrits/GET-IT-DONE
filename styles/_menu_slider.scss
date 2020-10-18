@@ -3,6 +3,20 @@
   color: rgba(var(--text-color), 1)
 }
 
+input#menu:checked {
+  ~#menu-controller { transform: translate(-10vw); }
+  ~#menu-dimmed-bg {
+    visibility: visible;
+    transform: translate(0);
+    transition: transform 1s 0s;
+  }
+  ~#menu-content {
+    visibility: visible;
+    transform: translate(0);
+    transition: transform .5s .4s;
+  }
+}
+
 #menu-controller {
   width: calc(4.5vw + 70px);
   min-height: 100vh;
@@ -19,6 +33,7 @@
     height: 50px;
     display: block;
     background-image: url("../images/hamburger.png");
+    background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -27,7 +42,7 @@
 #menu-dimmed-bg {
   visibility: hidden;
   transform: translate(-120vw);
-  transition: transform .8s .2s, color $color-transition-time, background-color $color-transition-time;
+  transition: all .8s .2s, color $color-transition-time, background-color $color-transition-time;
   background-color: rgba(var(--text-color), .6);
   z-index: 1;
   position: fixed;
@@ -40,16 +55,16 @@
   font-size: 2.25rem;
   text-transform: uppercase;
   transform: translate(-1200px);
-  background-color: rgba(var(--bg-color), 1);
-  opacity: 0;
+  transition: all .6s 0s, color $color-transition-time, background-color $color-transition-time;
+  visibility: hidden;
   padding: 40px 40px 40px 100px;
   position: absolute;
   top: 0;
   z-index: 2;
   box-sizing: border-box;
   min-height: 100vh;
+  background-color: rgba(var(--bg-color), 1);
   width: 54%;
-  transition: transform .6s 0, opacity 0 .6s;
   & > * {transition: all $color-transition-time;}
   header {
     display: flex;
@@ -57,6 +72,8 @@
     h4 { margin: 0; }
     label {
       background-image: url("../images/close.png");
+      background-size: contain;
+      background-repeat: no-repeat;
       width: 40px;
       height: 40px;
       margin-right: 100px;
@@ -73,15 +90,15 @@
     }
   }
   #completed-tasks {
-    h5 {
-      margin: 7rem 0 1.5rem;
-    }
+    h5 { margin: 7rem 0 1.5rem; }
     li {
       text-transform: none;
       list-style: none;
       margin: 12px 0;
       width: max-content;
       padding: 5px;
+      color: rgba(var(--bg-color), 1);
+      background-color: rgba(var(--text-color), 1);
       span {
         margin-left: 22px;
       }
@@ -109,6 +126,38 @@
     label { width: 100px; }
   }
   #menu-dimmed-bg { transform: translate(0, -120vh); }
+  #menu-content{
+    font-size: 3.2rem;
+    transform: translate(0, -100vh);
+    width: 100%;
+    padding: 0;
+    header {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      label {
+        height: 40px;
+        margin: 40px 0;
+        background-position: center;
+      }
+    }
+    #theme {
+      margin: 10rem;
+      h5 { text-align: center; }
+    }
+    #completed-tasks {
+      h5 {
+        margin: 10rem 0 4rem;
+        text-align: center;
+      }
+      li {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    #reset { margin: 12rem auto 100px; }
+  }
+  input#menu:checked { ~#menu-controller { transform: translate(0, -10vh); } }
 }
 
 @media (max-width: 500px) {

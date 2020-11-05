@@ -55,7 +55,6 @@ const readOneTask = (store, id, success, error = defaultError) => {
     let transaction = database.transaction([store], "readonly");
     let objectStore = transaction.objectStore(store);
     let request = objectStore.get(id);
-    let tasks = []
     request.onerror = error;
     request.onsuccess = () => { success(request.result); }
 }

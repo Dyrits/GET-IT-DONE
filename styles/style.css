@@ -371,7 +371,6 @@ input#menu:checked ~ #menu-content {
   background-color: rgba(var(--bg-color), 1);
   margin-left: 3rem;
   padding: 5.6rem 3.2rem;
-  justify-content: space-around;
   transition: all 0.4s;
 }
 #headers header:hover {
@@ -383,6 +382,7 @@ input#menu:checked ~ #menu-content {
   color: rgba(var(--text-color), 1);
 }
 #headers header article {
+  padding: 0 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -391,6 +391,7 @@ input#menu:checked ~ #menu-content {
   flex-grow: 3;
   display: flex;
   margin-right: 6rem;
+  justify-content: space-around;
 }
 @media (max-width: 1100px) {
   #headers {

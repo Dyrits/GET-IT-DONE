@@ -12,8 +12,21 @@ totalTasks.innerHTML = loadData("totalTasks");
 completedTasks.innerHTML = loadData("completedTasks");
 
 
-const deleteTaskOnClick = () => {
-    console.log("Clicked!");
+const deleteTaskOnClick = (element) => {
+    const id = Number(element.dataset.id);
+    readOneTask(taskStore, id, task => {
+        const completedTask = new CompletedTask(task.title);
+        addTask(completedTaskStore, completedTask, () => {
+            element.classList.add("exit");
+            element.addEventListener("animationend", () => {
+                deleteTask(taskStore, id, () => {
+                    totalTasks.innerHTML = decrementData("totalTasks");
+                    completedTasks.innerHTML = incrementData("completedTasks");
+                    updateTasks();
+                });
+            });
+        });
+    });
 }
 
 const updateTasks = () => {
@@ -24,10 +37,10 @@ const updateTasks = () => {
             let li = document.createElement("li");
             li.innerHTML = task.title;
             li.setAttribute("data-id", task.id);
-            li.addEventListener("click", deleteTaskOnClick);
+            li.addEventListener("click", () => { deleteTaskOnClick(li); });
             list.appendChild(li);
-        })
-    })
+        });
+    });
     readTask(completedTaskStore, (tasks) => {
         let list = document.querySelector("#completed-task-list");
         list.innerHTML = String();
@@ -36,8 +49,8 @@ const updateTasks = () => {
             li.innerHTML = `${task.title}: <span>${task.date}</span>`;
             li.className = "invert";
             list.appendChild(li);
-        })
-    })
+        });
+    });
 }
 
 input.addEventListener("keydown", ($event) => {
@@ -48,7 +61,7 @@ input.addEventListener("keydown", ($event) => {
             addTask(taskStore, task, () => {
                 totalTasks.innerHTML = incrementData("totalTasks");
                 updateTasks();
-            })
+            });
         }
     }
 })

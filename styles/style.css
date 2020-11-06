@@ -126,7 +126,7 @@ body {
   margin: 0;
   cursor: default;
   min-height: 100vh;
-  display: flex;
+  display: none;
 }
 @media (max-width: 1100px) {
   body {
@@ -382,13 +382,13 @@ input#menu:checked ~ #menu-content {
   color: rgba(var(--text-color), 1);
 }
 #headers header article {
-  padding: 0 1.2rem;
+  padding: 0 2.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 #headers header:last-of-type {
-  flex-grow: 3;
+  flex-grow: 1;
   display: flex;
   margin-right: 6rem;
   justify-content: space-around;

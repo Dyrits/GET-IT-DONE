@@ -53,6 +53,29 @@ const updateTasks = () => {
     });
 }
 
+const updateTheme = (theme = loadData("toDoTheme")) => {
+    const isLight = theme === "light";
+    const root = document.documentElement;
+    root.style.setProperty("--bg-color", isLight ? "255, 255, 255" : "19, 19, 19");
+    root.style.setProperty("--text-color", isLight ? "12, 12, 12" : "255, 255, 255");
+    root.style.setProperty("--shadow-color", isLight ? "0, 0, 0" : "255, 255, 255");
+    root.style.setProperty("--gradient-1", isLight ? "108, 109, 103" : "34, 208, 163");
+    root.style.setProperty("--gradient-2", isLight ? "100, 25, 148" : "32, 173, 211");
+    root.style.setProperty("--sidebar-gradient-1", isLight ? "255, 255, 255" : "35, 35, 35");
+    root.style.setProperty("--sidebar-gradient-2", isLight ? "251, 247, 247" : "46, 46, 46");
+    document.querySelector(".current-theme").classList.remove("current-theme");
+    document.querySelector(`#${theme}`).classList.add("current-theme")
+    saveData("toDoTheme", theme);
+    const invert = isLight ? "0%" : "100%";
+    document.querySelectorAll(".icon").forEach(icon => {
+        icon.style.filter = `brightness(100%) invert(${invert})`;
+    })
+}
+
+document.querySelectorAll(".themes").forEach(theme => {
+    theme.addEventListener("click", () => updateTheme(theme.dataset.theme));
+});
+
 input.addEventListener("keydown", ($event) => {
     if ($event.key === "Enter") {
         let task = new Task(input.value);
@@ -66,7 +89,8 @@ input.addEventListener("keydown", ($event) => {
     }
 })
 
-
 const onLoad = () => {
     updateTasks();
+    updateTheme();
+    document.body.style.display = "flex";
 }

@@ -4,13 +4,8 @@ const completedTasks = document.querySelector("#completed");
 const modal = document.querySelector("#modal");
 const maxRecentlyDeleted = 4;
 
-loadData("totalTasks") || saveData("totalTasks", 0)
-loadData("completedTasks") || saveData("completedTasks", 0)
-loadData("toDoTheme") || saveData("toDoTheme", "light")
-
-totalTasks.innerHTML = loadData("totalTasks");
-completedTasks.innerHTML = loadData("completedTasks");
-
+totalTasks.innerHTML = loadData("totalTasks") || saveData("totalTasks", 0)
+completedTasks.innerHTML = loadData("completedTasks") || saveData("completedTasks", 0)
 
 const deleteTaskOnClick = (element) => {
     const id = Number(element.dataset.id);
@@ -71,6 +66,25 @@ const updateTheme = (theme = loadData("toDoTheme")) => {
         icon.style.filter = `brightness(100%) invert(${invert})`;
     })
 }
+
+const attemptReset = () => { modal.showModal(); }
+
+const closeModal = () => { modal.close(); }
+
+const reset = () => {
+    totalTasks.innerHTML = saveData("totalTasks", 0);
+    completedTasks.innerHTML = saveData("completedTasks", 0);
+    deleteAllTask(taskStore);
+    deleteAllTask(completedTaskStore);
+    updateTasks();
+}
+
+document.querySelector("#reset").addEventListener("click", attemptReset);
+
+document.querySelectorAll(".modal-button").forEach(button => {
+    button.addEventListener("click", closeModal);
+    button.dataset.confirm && button.addEventListener("click", reset);
+});
 
 document.querySelectorAll(".themes").forEach(theme => {
     theme.addEventListener("click", () => updateTheme(theme.dataset.theme));

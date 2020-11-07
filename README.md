@@ -16,7 +16,6 @@ Albeit this project was made coding along while following the related course, a 
 
 ### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-Please make sure to update tests as appropriate (if any).
 
 ### Try it!
 [GitHub - View deployment](https://dyrits.github.io/GET-IT-DONE/)

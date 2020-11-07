@@ -79,17 +79,6 @@ const reset = () => {
     updateTasks();
 }
 
-document.querySelector("#reset").addEventListener("click", attemptReset);
-
-document.querySelectorAll(".modal-button").forEach(button => {
-    button.addEventListener("click", closeModal);
-    button.dataset.confirm && button.addEventListener("click", reset);
-});
-
-document.querySelectorAll(".themes").forEach(theme => {
-    theme.addEventListener("click", () => updateTheme(theme.dataset.theme));
-});
-
 input.addEventListener("keydown", ($event) => {
     if ($event.key === "Enter") {
         let task = new Task(input.value);
@@ -103,8 +92,19 @@ input.addEventListener("keydown", ($event) => {
     }
 })
 
+document.querySelectorAll(".themes").forEach(theme => {
+    theme.addEventListener("click", () => updateTheme(theme.dataset.theme));
+});
+
+document.querySelector("#reset").addEventListener("click", attemptReset);
+
+document.querySelectorAll(".modal-button").forEach(button => {
+    button.addEventListener("click", closeModal);
+    button.dataset.confirm && button.addEventListener("click", reset);
+});
+
 const onLoad = () => {
     updateTasks();
-    updateTheme();
+    updateTheme("light");
     document.body.style.display = "flex";
 }

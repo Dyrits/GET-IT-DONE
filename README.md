@@ -1,30 +1,31 @@
 # Get It Done
 
-## About this project
+A to-do list application built while following section 11 of the Udemy course "The Complete 2020 Web Developer Master Course".
 
-### Related CONTENT
-Udemy | [The Complete 2020 Web Developer Master Course](https://www.udemy.com/course/the-complete-2020-web-developer-master-course/)  
-Section 11: Get It Done
+## About The Project
 
-### Technologies | Tools
-- HTML
+The original README noted that this project was made coding along while following the course, with a few changes from the original project.
+
+The original README also noted that, from version 53 of Firefox, the modal feature used to reset all tasks is not enabled by default: it is hidden behind the `dom.dialog_element.enabled` preference (to be set to true in about:config).
+
+## Built With
+
+- HTML5
 - SCSS
 - JavaScript
 
-### Details | Comments
-Albeit this project was made coding along while following the related course, a few changes have been made from the original project.
+## Usage
 
-**Firefox**: From version 53: by default, the modal feature (used to reset all the tasks) is not enabled. It is hidden behind the dom.dialog_element.enabled preference (needs to be set to true). To change preferences in Firefox, visit about:config.
+The app is published on GitHub Pages: [dyrits.github.io/GET-IT-DONE](https://dyrits.github.io/GET-IT-DONE/)
 
-### Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Status
 
-### Try it!
-[GitHub - View deployment](https://dyrits.github.io/GET-IT-DONE/)
+Completed, per the original README.
 
-### Status
-Completed
+## License
 
-#### Last update
-07/11/2020
-(README | 07/11/2020)
+No license file is present in this repository.
+
+## Contact
+
+Dylan J. Gerrits - [GitHub](https://github.com/Dyrits)
